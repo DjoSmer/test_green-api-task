@@ -5,6 +5,7 @@ export interface IStore {
     idInstance: string,
     apiToken: string,
     phoneNumber: string,
+    message: string,
     lastResponseData: {} | null
 }
 
@@ -17,6 +18,7 @@ export interface IStoreContext {
     setIdInstance: (value: string) => void,
     setApiToken: (value: string) => void,
     setPhoneNumber: (value: string) => void,
+    setMessage: (value: string) => void,
     setLastResponseData: (value: {}) => void,
 }
 
@@ -28,6 +30,7 @@ export const appStore: IStoreContext = {
         idInstance: '',
         apiToken: '',
         phoneNumber: '',
+        message: '',
         lastResponseData: null
     },
     _onStoreUpdate: (cb) => {
@@ -49,6 +52,9 @@ export const appStore: IStoreContext = {
     },
     setPhoneNumber: (value) => {
         appStore._updateStore({phoneNumber: value});
+    },
+    setMessage: (value) => {
+        appStore._updateStore({message: value});
     },
     setLastResponseData: (value) => {
         appStore._updateStore({lastResponseData: value});

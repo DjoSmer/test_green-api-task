@@ -5,7 +5,7 @@ import { ResponseContainer } from './components/ResponseContainer';
 import { InstanceBlock } from './features/InstanceBlock';
 import { GetInstanceData } from './features/GetInstanceData';
 import { ResponseBlock } from './features/ResponseBlock';
-import { PhoneNumber } from './features/PhoneNumber';
+import { ReceiverBlock } from './features/ReceiverBlock';
 import { SendMessage } from './features/SendMessage';
 import { SendFileByUrl } from './features/SendFileByUrl';
 
@@ -20,7 +20,7 @@ function App() {
                     <GetInstanceData />
                 </div>
                 <div className='item'>
-                    <PhoneNumber />
+                    <ReceiverBlock/>
                 </div>
                 <div className='item'>
                     <SendMessage/>

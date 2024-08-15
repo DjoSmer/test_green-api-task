@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 import { useStore } from './useStore';
 import { IStore } from '../store';
 
-export const useSelector = (key: keyof IStore) => {
+export const useSelector = <T extends keyof IStore>(key: T) => {
     const {getStore, _onStoreUpdate} = useStore();
     const store = getStore();
-    const [value, setValue] = useState<IStore[keyof IStore]>(store[key]);
+    const [value, setValue] = useState<IStore[T]>(store[key]);
 
     useEffect(() => {
         return _onStoreUpdate((store) => {

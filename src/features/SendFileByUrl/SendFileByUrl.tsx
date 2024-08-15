@@ -18,7 +18,7 @@ export const SendFileByUrl = () => {
     const {sendAction} = useGreenApi();
 
     const handleClick = async () => {
-        const {phoneNumber} = getStore();
+        const {phoneNumber, message} = getStore();
 
         if (!urlFile || !phoneNumber) return false;
 
@@ -30,7 +30,8 @@ export const SendFileByUrl = () => {
         const messageData: ISendFileByUrl = {
             chatId: phoneNumber + '@c.us',
             urlFile,
-            fileName
+            fileName,
+            caption: message || undefined
         }
 
         await sendAction('sendFileByUrl', messageData);

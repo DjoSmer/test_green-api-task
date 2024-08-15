@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { TextArea } from '../../components/TextArea';
+import React from 'react';
 import { Button } from '../../components/Button';
 import { useStore } from '../../hooks/useStore';
 import { useGreenApi } from '../../hooks/useGreenApi';
@@ -12,12 +11,11 @@ export interface ISendMessage {
 }
 
 export const SendMessage = () => {
-    const [message, setMessage] = useState('');
     const {getStore} = useStore();
     const {sendAction} = useGreenApi();
 
     const handleClick = async () => {
-        const {phoneNumber} = getStore();
+        const {phoneNumber, message} = getStore();
 
         if (!message || !phoneNumber) return false;
 
@@ -29,11 +27,5 @@ export const SendMessage = () => {
         await sendAction('sendMessage', messageData);
     }
 
-    return (
-        <>
-            <label>Message</label>
-            <TextArea name='message' value={message} onChange={({target: {value}}) => setMessage(value)}/>
-            <Button onClick={handleClick}>sendMessage</Button>
-        </>
-    );
+    return (<Button onClick={handleClick}>sendMessage</Button>);
 };
