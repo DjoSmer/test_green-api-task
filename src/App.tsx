@@ -1,26 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Layout } from './components/Layout';
+import { ControlContainer } from './components/ControlContainer';
+import { ResponseContainer } from './components/ResponseContainer';
+import { InstanceBlock } from './features/InstanceBlock';
+import { GetInstanceData } from './features/GetInstanceData';
+import { ResponseBlock } from './features/ResponseBlock';
+import { PhoneNumber } from './features/PhoneNumber';
+import { SendMessage } from './features/SendMessage';
+import { SendFileByUrl } from './features/SendFileByUrl';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Layout>
+            <ControlContainer>
+                <div className='item'>
+                    <InstanceBlock />
+                </div>
+                <div className='item'>
+                    <GetInstanceData />
+                </div>
+                <div className='item'>
+                    <PhoneNumber />
+                </div>
+                <div className='item'>
+                    <SendMessage/>
+                </div>
+                <div className='item'>
+                    <SendFileByUrl/>
+                </div>
+            </ControlContainer>
+            <ResponseContainer>
+                <ResponseBlock />
+            </ResponseContainer>
+        </Layout>
+    );
 }
 
 export default App;

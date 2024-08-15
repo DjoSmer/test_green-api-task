@@ -1,0 +1,10 @@
+.control-container {
+    width: 35%;
+}
+
+.control-container > .item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    gap: .5rem;
+}
