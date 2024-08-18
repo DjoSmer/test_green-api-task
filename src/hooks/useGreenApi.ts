@@ -10,6 +10,7 @@ export const useGreenApi = () => {
             const response = await fetch(`${apiUrl}/waInstance${idInstance}/${action}/${apiToken}`, {
                 method: data ? 'POST' : 'GET',
                 headers: {
+                    'accept': 'application/json',
                     'content-type': 'application/json'
                 },
                 body: data ? JSON.stringify(data) : null
